@@ -1,3 +1,6 @@
+# Deno cache
+.deno/
+
 # Logs
 logs
 *.log

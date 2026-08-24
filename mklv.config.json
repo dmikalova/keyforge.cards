@@ -1,0 +1,8 @@
+{
+  "name": "keyforge-cards",
+  "entrypoint": "src/main.ts",
+  "runtime": {
+    "port": 8080,
+    "healthCheckPath": "/health"
+  }
+}
