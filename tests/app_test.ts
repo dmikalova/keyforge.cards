@@ -42,6 +42,30 @@ Deno.test("bingo host serves the bingo landing page", async () => {
   assertEquals(text.includes("bingo board generator"), true);
 });
 
+// Each host serves its own link preview image, and its page points at it.
+const previews = {
+  "keyforge.cards": "keyforge",
+  "amasser.keyforge.cards": "amasser",
+  "bingo.keyforge.cards": "bingo",
+};
+for (const [host, site] of Object.entries(previews)) {
+  Deno.test(`${host} serves its link preview image`, async () => {
+    const page = await (await app.fetch(new Request(`http://${host}/`))).text();
+    assertEquals(
+      page.includes(
+        `<meta property="og:image" content="https://${host}/og.jpg"`,
+      ),
+      true,
+    );
+
+    const res = await app.fetch(new Request(`http://${host}/og.jpg`));
+    assertEquals(res.status, 200);
+    assertEquals(res.headers.get("content-type"), "image/jpeg");
+    const want = await Deno.readFile(`./src/public/${site}/og.jpg`);
+    assertEquals(new Uint8Array(await res.arrayBuffer()), want);
+  });
+}
+
 Deno.test("shared favicon is served", async () => {
   const req = new Request("http://keyforge.cards/favicon.svg");
   const res = await app.fetch(req);
