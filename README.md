@@ -4,12 +4,11 @@ Landing pages for keyforge.cards and its subdomains.
 
 ## Sites
 
-A single Cloud Run service serves three landing pages via host-based routing.
+A single Cloud Run service serves two landing pages via host-based routing.
 Each site has its own folder under `src/public/`:
 
 - **keyforge.cards** &ndash; index of KeyForge tools
 - **amasser.keyforge.cards** &ndash; the Amasser browser extension
-- **bingo.keyforge.cards** &ndash; the KeyForge bingo board generator
 
 ## Development
 

@@ -32,21 +32,10 @@ Deno.test("amasser host serves the amasser landing page", async () => {
   assertEquals(text.includes("Master Vault"), true);
 });
 
-Deno.test("bingo host serves the bingo landing page", async () => {
-  const req = new Request("http://bingo.keyforge.cards/");
-  const res = await app.fetch(req);
-
-  assertEquals(res.status, 200);
-  const text = await res.text();
-  assertEquals(text.includes("Bingo"), true);
-  assertEquals(text.includes("bingo board generator"), true);
-});
-
 // Each host serves its own link preview image, and its page points at it.
 const previews = {
   "keyforge.cards": "keyforge",
   "amasser.keyforge.cards": "amasser",
-  "bingo.keyforge.cards": "bingo",
 };
 for (const [host, site] of Object.entries(previews)) {
   Deno.test(`${host} serves its link preview image`, async () => {
