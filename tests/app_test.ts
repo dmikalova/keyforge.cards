@@ -19,6 +19,7 @@ Deno.test("apex host serves the keyforge.cards landing page", async () => {
   assertEquals(text.includes("keyforge.cards"), true);
   assertEquals(text.includes("Amasser"), true);
   assertEquals(text.includes("Bingo"), true);
+  assertEquals(text.includes("https://keyfordle.keyforge.cards"), true);
 });
 
 Deno.test("amasser host serves the amasser landing page", async () => {
