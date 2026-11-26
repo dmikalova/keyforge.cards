@@ -23,19 +23,10 @@ function siteFromUrl(url: string): "amasser" | "bingo" | "keyforge" {
   return "keyforge";
 }
 
-// Static assets for the resolved site
+// Static assets for the resolved site. serveStatic answers "/" with the
+// site's index.html.
 app.use(
   "/*",
   (c, next) =>
     serveStatic({ root: `./src/public/${siteFromUrl(c.req.url)}` })(c, next),
-);
-
-// Fallback to the site's index.html for the root path
-app.get(
-  "/",
-  (c, next) =>
-    serveStatic({ path: `./src/public/${siteFromUrl(c.req.url)}/index.html` })(
-      c,
-      next,
-    ),
 );

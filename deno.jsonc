@@ -23,7 +23,9 @@
     // Install git hooks (run once after clone)
     "setup": "lefthook install",
     // Run tests
-    "test": "deno test --permission-set tests/"
+    "test": "deno test --permission-set tests/",
+    // Run every test; the shared deno-coverage hook calls this task
+    "test:all": "deno test --permission-set tests/"
   },
 
   // Default permissions for tasks
