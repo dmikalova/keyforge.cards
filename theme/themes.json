@@ -1,0 +1,85 @@
+{
+  "mode": "dark",
+  "default": "default",
+  "variant": "fidelity",
+  "cookie": { "name": "kf-theme", "domain": "keyforge.cards" },
+  "themes": [
+    {
+      "name": "default",
+      "label": "Default",
+      "seed": "#f5a623",
+      "neutral": "#2b1d33"
+    },
+    {
+      "name": "brobnar",
+      "label": "Brobnar",
+      "seed": "#b76229",
+      "accent": "#e8a92b"
+    },
+    { "name": "dis", "label": "Dis", "seed": "#ce2e74" },
+    {
+      "name": "ekwidon",
+      "label": "Ekwidon",
+      "seed": "#6fbaae",
+      "accent": "#b78f4b"
+    },
+    { "name": "geistoid", "label": "Geistoid", "seed": "#754d8f" },
+    {
+      "name": "ironyx-rebels",
+      "label": "Ironyx Rebels",
+      "seed": "#86c441",
+      "accent": "#d21d43"
+    },
+    {
+      "name": "keyraken",
+      "label": "Keyraken",
+      "seed": "#324476",
+      "accent": "#573547"
+    },
+    { "name": "logos", "label": "Logos", "seed": "#17a2c5" },
+    { "name": "mars", "label": "Mars", "seed": "#8cbc44" },
+    {
+      "name": "ouboros",
+      "label": "Ouboros",
+      "seed": "#c1232d",
+      "accent": "#f99301"
+    },
+    { "name": "redemption", "label": "Redemption", "seed": "#ca454b" },
+    {
+      "name": "sanctum",
+      "label": "Sanctum",
+      "seed": "#d5d173",
+      "accent": "#486aa2"
+    },
+    { "name": "saurian", "label": "Saurian", "seed": "#4bb2bd" },
+    { "name": "shadows", "label": "Shadows", "seed": "#393752" },
+    {
+      "name": "skyborn",
+      "label": "Skyborn",
+      "seed": "#6792ab",
+      "accent": "#b77c41"
+    },
+    {
+      "name": "star-alliance",
+      "label": "Star Alliance",
+      "seed": "#df9132",
+      "accent": "#a13c2a"
+    },
+    {
+      "name": "unfathomable",
+      "label": "Unfathomable",
+      "seed": "#363a5d",
+      "accent": "#96ced7"
+    },
+    {
+      "name": "untamed",
+      "label": "Untamed",
+      "seed": "#d46932",
+      "accent": "#1f7f58"
+    }
+  ],
+  "out": {
+    "css": "../src/public/theme/theme.css",
+    "script": "../src/public/theme/theme.js"
+  }
+}

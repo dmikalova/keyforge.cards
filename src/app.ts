@@ -14,6 +14,10 @@ app.get("/health", (c) => c.text("OK"));
 // Shared favicon across all sites
 app.get("/favicon.svg", serveStatic({ path: "./src/public/favicon.svg" }));
 
+// Shared themes across all sites. theme/themes.json is the source; run
+// `deno task theme` to write theme.css and theme.js.
+app.get("/theme/*", serveStatic({ root: "./src/public" }));
+
 // Resolve which site to serve from the request host. Deno.serve builds the
 // request URL from the Host header, so the subdomain is available here.
 function siteFromUrl(url: string): "amasser" | "keyforge" {

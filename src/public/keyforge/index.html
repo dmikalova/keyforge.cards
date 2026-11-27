@@ -19,14 +19,15 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- The theme script runs before the first paint, so it is not deferred. -->
+    <script src="/theme/theme.js"></script>
+    <link rel="stylesheet" href="/theme/theme.css" />
     <style>
+    /* The theme sets the color roles. This page maps them to its parts. */
     :root {
-      --primary: #f5a623;
-      --primary-dark: #d48806;
-      --surface: #2b1d33;
-      --card: #3d2b47;
-      --on-surface: #f5f5f5;
-      --on-surface-muted: #bcafc6;
+      --page: var(--surface-container);
+      --card: var(--surface-container-highest);
+      --on-surface-muted: var(--on-surface-variant);
     }
 
     * {
@@ -39,7 +40,7 @@
       font-family:
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
         sans-serif;
-      background: var(--surface);
+      background: var(--page);
       color: var(--on-surface);
       min-height: 100vh;
       display: flex;
@@ -124,6 +125,26 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    .theme-picker {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Without the script the picker has no themes, so it is hidden. */
+    .theme-picker:has(select:empty) {
+      display: none;
+    }
+
+    .theme-picker select {
+      font: inherit;
+      color: var(--on-surface);
+      background: var(--surface-container-high);
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      padding: 0.3rem 0.5rem;
+    }
     </style>
   </head>
   <body>
@@ -164,5 +185,12 @@
         <span class="app-arrow">&rarr;</span>
       </a>
     </nav>
+
+    <footer>
+      <label class="theme-picker">
+        Theme
+        <select data-theme-picker></select>
+      </label>
+    </footer>
   </body>
 </html>

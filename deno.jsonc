@@ -25,7 +25,9 @@
     // Run tests
     "test": "deno test --permission-set tests/",
     // Run every test; the shared deno-coverage hook calls this task
-    "test:all": "deno test --permission-set tests/"
+    "test:all": "deno test --permission-set tests/",
+    // Write src/public/theme from theme/themes.json (needs Go)
+    "theme": "go run github.com/dmikalova/mklv-ui/cmd/mklv-theme@v0.1.0 build theme/themes.json"
   },
 
   // Default permissions for tasks
